@@ -1,12 +1,12 @@
 Spree::Price.class_eval do
-
   has_many :sale_prices
+  has_many :active_sale_prices, -> { active }, class_name: "Spree::SalePrice"
 
-  def put_on_sale value, params={}
+  def put_on_sale(value, params = {})
     new_sale(value, params).save
   end
 
-  def new_sale value, params={}
+  def new_sale(value, params = {})
     sale_price = sale_prices.new
 
     sale_price.value      = value
