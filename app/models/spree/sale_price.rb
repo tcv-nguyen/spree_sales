@@ -4,7 +4,7 @@ module Spree
 
     # TODO validations
     belongs_to :default_price, :class_name => "Spree::Price", :foreign_key => "price_id"
-    belongs_to :price, :class_name => "Spree::Price", touch: true
+    belongs_to :price, :class_name => "Spree::Price"
     has_one :calculator, :class_name => "Spree::Calculator", :as => :calculable, :dependent => :destroy
 
     accepts_nested_attributes_for :calculator
